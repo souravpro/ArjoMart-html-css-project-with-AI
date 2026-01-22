@@ -1,0 +1,159 @@
+/* =====================
+   Base Reset
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F9FAFB;
+    color: #374151;
+}
+
+/* =====================
+   Reusable Container
+===================== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* =====================
+   Navbar
+===================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #E5E7EB;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+/* Logo */
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}
+
+/* Menu */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #374151;
+    position: relative;
+}
+
+/* Hover underline effect */
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #2563EB;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Icons */
+.nav-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-icons a {
+    color: #374151;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-icons a:hover {
+    color: #2563EB;
+}
+
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: #111827;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Hide desktop menu */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: #ffffff;
+        padding: 40px 20px;
+        transition: 0.4s ease;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+    }
+
+    /* Show menu when checked */
+    #menu-toggle:checked~.nav-menu {
+        right: 0;
+    }
+
+    /* Hide extra icons (optional) */
+    .nav-icons {
+        display: none;
+    }
+}
